@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --rs --exit-child --respawn --watch src src/app.ts",
+    "dev": "ts-node-dev --rs --exit-child --respawn --watch ./src ./src/app.ts",
     "debug": "export DEBUG=* && yarn run dev"
   },
   "keywords": [],
