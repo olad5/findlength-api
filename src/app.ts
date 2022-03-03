@@ -1,10 +1,12 @@
 import express from "express";
+import 'express-async-errors';// package to catch async errors
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import debug from 'debug'
 import process from "process";
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
+import errorHandlerMiddleware from "./middlewares/error-handler";
 
 import {AppRoutes} from "./routes/approutes";
 const app: express.Application = express();
@@ -33,6 +35,7 @@ app.use(expressWinston.logger(loggerOptions));
 
 const routes: AppRoutes[] = [new AppRoutes(app)];// add the routes
 
+app.use(errorHandlerMiddleware);
 
 process.on('uncaughtException', err => {// uncaught exceptions are meant to stop the server
     console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');

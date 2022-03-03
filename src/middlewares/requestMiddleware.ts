@@ -2,6 +2,7 @@ import express from 'express';
 import ytdl from 'ytdl-core';
 import ytpl from 'ytpl';
 import debug from 'debug';
+import {CustomAPIError} from '../error/custom-api';
 
 const log: debug.IDebugger = debug('app:users-controller');
 
@@ -13,7 +14,7 @@ class RequestMiddleware {
     ) {
         const isVideoValid: boolean = ytdl.validateURL(req.body.url)
         if (!isVideoValid) {
-            res.status(400).send({error: `video link not valid`});
+            throw new CustomAPIError('video link not valid', 403);
         } else {
             next();
         }
@@ -25,12 +26,14 @@ class RequestMiddleware {
         next: express.NextFunction
     ) {
         const playId: string = await ytpl.getPlaylistID(req.body.url)
+        log(playId);
         const isVideoValid: boolean = ytpl.validateID(playId)
         if (!isVideoValid) {
             return res.status(400).send({error: `video link not valid`});
         } else {
             next();
         }
+
 
     }
 
