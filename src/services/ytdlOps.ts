@@ -8,7 +8,7 @@ class Ytdl {
     }
 
     async getPlaylistInfo(link: string) {
-        let info = await ytpl(link)
+        let info = await ytpl(link, {limit: Infinity})
         return info
     }
 }

@@ -23,7 +23,7 @@ class AppController {
         const playlistInfo = await Ytdl.getPlaylistInfo(req.body.url)
         let totalSeconds: number = 0
         // gets the total seconds for the playlist at normal speed
-        for (let i: number = 0; i < playlistInfo.estimatedItemCount; i++) {
+        for (let i: number = 0; i < playlistInfo.items.length; i++) {
             let durationInSeconds: number | null = playlistInfo.items[i].durationSec
             if (durationInSeconds) {
                 totalSeconds += durationInSeconds
