@@ -1,16 +1,16 @@
 {
-  "name": "ts-youtube-video-length",
+  "name": "findlength-api",
   "version": "1.0.0",
+  "author": "Francis Moss <shonubioladipo@gmail.com>",
+  "license": "MIT",
   "description": "",
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --rs --exit-child --respawn --watch ./src ./src/app.ts",
+    "dev": "ts-node-dev --rs --exit-child --respawn  ./src/app.ts",
     "debug": "export DEBUG=* && yarn run dev"
   },
   "keywords": [],
-  "author": "Francis Shonubi",
-  "license": "ISC",
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",
@@ -30,7 +30,7 @@
     "express-async-errors": "^3.1.1",
     "express-winston": "^4.2.0",
     "winston": "^3.6.0",
-    "ytdl-core": "^4.10.1",
+    "ytdl-core": "^4.11.0",
     "ytpl": "^2.2.3"
   }
 }
