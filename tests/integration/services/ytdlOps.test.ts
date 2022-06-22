@@ -3,7 +3,6 @@ import Ytdl from "../../../src/services/ytdlOps";
 jest.setTimeout(10000);
 describe("Test for Youtube Node modules", () => {
   describe("ytdl module test", () => {
-    // TODO: change the description
     it("should verify the duration in seconds of this youtube video ", async () => {
       const response = await Ytdl.getVideoInfo(
         "https://www.youtube.com/watch?v=HfACrKJ_Y2w"
