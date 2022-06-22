@@ -4,7 +4,11 @@ import Data from "../types/types.d";
 /**
  * Computes the speeds of a single video/playlist at 1.25x, 1.5x, 1.75x, 2x speeds
  **/
-export function computeResourceSpeed(lengthInSeconds: number, speed: number) {
+
+export const computeResourceSpeed = (
+  lengthInSeconds: number,
+  speed: number
+): string => {
   // gets the seconds at a particular speed in integers
   const secondsAtspeed: number = Math.floor(lengthInSeconds / speed);
 
@@ -48,13 +52,14 @@ export function computeResourceSpeed(lengthInSeconds: number, speed: number) {
     }
   }
   outputString = outputString.slice(0, outputString.length - 2); //removes the comma and space
+
   return outputString;
-}
+};
 
 /**
   Returns the computed speeds of a single video/playlist as an array to the controller
 **/
-export function getResourceSpeed(seconds: number): string[] {
+export const getResourceSpeed = (seconds: number): string[] => {
   let defaultSpeeds: number[] = [1.25, 1.5, 1.75, 2];
   let computedSpeeds: string[] = [];
 
@@ -62,9 +67,9 @@ export function getResourceSpeed(seconds: number): string[] {
     computedSpeeds.push(computeResourceSpeed(seconds, speed));
   });
   return computedSpeeds;
-}
+};
 
-export function formatResourceSpeeds(totalSeconds: number) {
+export const formatResourceSpeeds = (totalSeconds: number): Data[] => {
   const resourceSpeeds: string[] = getResourceSpeed(totalSeconds);
   let data: Data[] = [
     {
@@ -90,4 +95,4 @@ export function formatResourceSpeeds(totalSeconds: number) {
   ];
 
   return data;
-}
+};
