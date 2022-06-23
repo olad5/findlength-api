@@ -9,7 +9,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --coverage --onlyChanged --watch",
     "build": "tsc",
     "dev": "ts-node-dev --rs --exit-child --respawn  ./src/app.ts",
     "debug": "export DEBUG=* && yarn run dev"
