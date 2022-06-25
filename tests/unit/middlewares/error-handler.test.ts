@@ -69,6 +69,21 @@ describe("Unit test for Error handler Middleware", () => {
     expect(mockResponse.json).toBeCalledWith(expectedResponse);
     expect(nextFunction).toHaveBeenCalledTimes(0);
   });
+  it("should return a 404 and a 'This playlist does not exist' message if the error from the ytpl module is unknown playlist", () => {
+    expectedResponse.message = "This playlist does not exist.";
+
+    err = new CustomAPIError("Unknown Playlist", 404);
+    errorHanldlerMiddleware(
+      err,
+      mockRequest as Request,
+      mockResponse as Response,
+      nextFunction
+    );
+
+    expect(mockResponse.statusCode).toBe(404);
+    expect(mockResponse.json).toBeCalledWith(expectedResponse);
+    expect(nextFunction).toHaveBeenCalledTimes(0);
+  });
   it("should return a 403 and a 'Invalid url' message ", () => {
     expectedResponse.message = "Invalid url";
 
