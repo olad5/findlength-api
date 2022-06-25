@@ -11,6 +11,7 @@ class AppController {
    */
   async getVideoInfo(req: express.Request, res: express.Response) {
     const videoInfo = await Ytdl.getVideoInfo(req.body.url); // this works for single videos
+    const videoTitle = videoInfo.videoDetails?.title;
     const lengthSeconds = videoInfo.videoDetails?.lengthSeconds;
 
     const data = formatResourceSpeeds(Number(lengthSeconds));
@@ -21,6 +22,7 @@ class AppController {
     return res.json({
       status: true,
       message: "Video speeds computed",
+      resourceTitle: videoTitle,
       originalLength: originalLength,
       speeds: data,
     });
@@ -31,6 +33,7 @@ class AppController {
    */
   async getPlaylistInfo(req: express.Request, res: express.Response) {
     const playlistInfo = await Ytdl.getPlaylistInfo(req.body.url);
+    const playlistTitle = playlistInfo.title;
     let totalSeconds: number = 0;
 
     for (let i: number = 0; i < playlistInfo.items?.length; i++) {
@@ -46,6 +49,7 @@ class AppController {
     return res.json({
       status: true,
       message: "Playlist speeds computed",
+      resourceTitle: playlistTitle,
       originalLength: originalLength,
       speeds: data,
     });
