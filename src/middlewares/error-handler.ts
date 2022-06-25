@@ -30,7 +30,8 @@ const errorHandlerMiddleware = (
 
   if (
     err.name === "Error" &&
-    err.message === "API-Error: The playlist does not exist."
+    (err.message === "API-Error: The playlist does not exist." ||
+      err.message === "Unknown Playlist")
   ) {
     customError.msg = "This playlist does not exist.";
     customError.statusCode = 404;
