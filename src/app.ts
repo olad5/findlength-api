@@ -2,10 +2,7 @@ import express from "express";
 import "express-async-errors"; // package to catch async errors
 import bodyParser from "body-parser";
 import cors from "cors";
-import debug from "debug";
 import process from "process";
-// TODO: might have to delete some of these imports
-import * as winston from "winston";
 import * as expressWinston from "express-winston";
 import errorHandlerMiddleware from "./middlewares/error-handler";
 import loggerOptions from "./utils/logger";

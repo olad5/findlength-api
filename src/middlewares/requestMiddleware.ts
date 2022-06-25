@@ -9,15 +9,6 @@ class RequestMiddleware {
     res: express.Response,
     next: express.NextFunction
   ) {
-    // TODO:make a new middleware that checks if the text field is empty,
-    // this wont just throw an error.
-    // You need this because it's meant to be added to both the video
-    // and the playlist routes
-
-    // if (!req.body.url) {
-    //   console.log("no  datta in the url object");
-    //   throw new CustomAPIError("video link not valid", 400);
-    // }
     const isVideoValid: boolean = ytdl.validateURL(req.body.url);
     if (!isVideoValid) {
       throw new CustomAPIError("video link not valid", 400);
