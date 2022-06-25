@@ -6,6 +6,7 @@ import {
   mockPlaylistSpeedsResponse,
 } from "../../mockData/appcontoller.mock";
 
+jest.setTimeout(10000);
 beforeAll(() => {
   jest.clearAllMocks();
 });
@@ -79,6 +80,7 @@ describe("The App Routes", () => {
       mockRequest.url = "https://www.youtube.com/watch?v=HfACrKJ_Y2w";
       let expectedResponse = {
         ...mockGetVideoInfoResponse,
+        resourceTitle: expect.any(String),
         originalLength: "11hours, 53minutes, 48seconds",
       };
 
@@ -127,6 +129,7 @@ describe("The App Routes", () => {
         "https://www.youtube.com/playlist?list=PLm323Lc7iSW9oSIDihesMJXmMNfh8U59k";
       let expectedResponse = {
         ...mockGetPlaylistInfoResponse,
+        resourceTitle: expect.any(String),
         speeds: mockPlaylistSpeedsResponse,
       };
 

@@ -54,6 +54,7 @@ describe("App Controller", () => {
       expect(formatResourceSpeedMock).toHaveBeenCalled();
       expect(computeResourceSpeedMock).toHaveBeenCalled();
       expect(mockResponse.statusCode).toBe(200);
+
       expect(mockResponse.json).toBeCalledWith(mockGetVideoInfoResponse);
     });
   });

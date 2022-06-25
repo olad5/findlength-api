@@ -49,11 +49,13 @@ export const mockGetVideoInfoResponse = {
   status: true,
   message: "Video speeds computed",
   originalLength: expect.any(String),
+  resourceTitle: undefined,
   speeds: mockSpeedsResponse,
 };
 export const mockGetPlaylistInfoResponse = {
   status: true,
   message: "Playlist speeds computed",
   originalLength: expect.any(String),
+  resourceTitle: undefined,
   speeds: mockSpeedsResponse,
 };
