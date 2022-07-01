@@ -9,10 +9,11 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "node ./dist/js/server.js",
+    "dev": "ts-node-dev --rs --exit-child --respawn  ./src/server.ts",
     "test:unit": "jest --coverage --onlyChanged --watch --testPathPattern=$PWD/tests/unit* ",
     "test:integration": "jest --coverage --onlyChanged --watch --testPathPattern=$PWD/tests/integration* ",
     "build": "tsc",
-    "dev": "ts-node-dev --rs --exit-child --respawn  ./src/server.ts",
     "debug": "export DEBUG=* && yarn run dev"
   },
   "keywords": [],
