@@ -26,22 +26,22 @@ export const mockPlaylistSpeedsResponse = [
   {
     id: 0,
     speed: 1.25,
-    length: "12hours, 12minutes, 44seconds",
+    length: "20hours, 47minutes, 8seconds",
   },
   {
     id: 1,
     speed: 1.5,
-    length: "10hours, 10minutes, 36seconds",
+    length: "17hours, 19minutes, 17seconds",
   },
   {
     id: 2,
     speed: 1.75,
-    length: "8hours, 43minutes, 22seconds",
+    length: "14hours, 50minutes, 49seconds",
   },
   {
     id: 3,
     speed: 2,
-    length: "7hours, 37minutes, 57seconds",
+    length: "12hours, 59minutes, 28seconds",
   },
 ];
 

@@ -126,7 +126,7 @@ describe("The App Routes", () => {
     });
     it("should return an object of the expected response and a 200 status code", async () => {
       mockRequest.url =
-        "https://www.youtube.com/playlist?list=PLm323Lc7iSW9oSIDihesMJXmMNfh8U59k";
+        "https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB";
       let expectedResponse = {
         ...mockGetPlaylistInfoResponse,
         resourceTitle: expect.any(String),
